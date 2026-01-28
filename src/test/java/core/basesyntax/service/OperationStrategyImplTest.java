@@ -162,12 +162,12 @@ public class OperationStrategyImplTest {
         OperationStrategyImpl strategy = new OperationStrategyImpl(operationHandlers);
 
         OperationHandler handler1 = strategy.get(FruitTransaction.Operation.BALANCE);
-        OperationHandler handler2 = strategy.get(FruitTransaction.Operation.SUPPLY);
-        OperationHandler handler3 = strategy.get(FruitTransaction.Operation.PURCHASE);
-        OperationHandler handler4 = strategy.get(FruitTransaction.Operation.RETURN);
         assertSame(balanceHandler, handler1);
+        OperationHandler handler2 = strategy.get(FruitTransaction.Operation.SUPPLY);
         assertSame(supplyHandler, handler2);
+        OperationHandler handler3 = strategy.get(FruitTransaction.Operation.PURCHASE);
         assertSame(purchaseHandler, handler3);
+        OperationHandler handler4 = strategy.get(FruitTransaction.Operation.RETURN);
         assertSame(returnHandler, handler4);
     }
 
