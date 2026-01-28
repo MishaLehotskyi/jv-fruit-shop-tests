@@ -1,18 +1,17 @@
 package core.basesyntax.db;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class FruitDBTest {
+public class FruitDbTest {
     private static final String VALID_FRUIT = "apple";
     private static final Integer VALID_QUANTITY = 100;
     private static final Integer ZERO_QUANTITY = 0;

@@ -4,15 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
-
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 public class FileReaderImplTest {
     private static final String VALID_HEADER = "type,fruit,quantity";
@@ -22,7 +21,7 @@ public class FileReaderImplTest {
     private static final String SPACES_STRING = "   ";
 
     @TempDir
-    Path tempDir;
+    private Path tempDir;
 
     private FileReaderImpl fileReader;
     private Path testFile;
@@ -65,7 +64,8 @@ public class FileReaderImplTest {
 
     @Test
     void read_invalidPath_notOk() {
-        // Use a path with invalid characters (this varies by OS, but null byte works on most)
+        // Use a path with invalid characters
+        // (this varies by OS, but null byte works on most)
         String invalidPath = "invalid\0path.csv";
 
         Exception exception = assertThrows(IllegalArgumentException.class,
@@ -212,7 +212,8 @@ public class FileReaderImplTest {
     @Test
     void read_fileWithDuplicateHeaderInMiddle_ok() throws IOException {
         testFile = tempDir.resolve("duplicate-header.csv");
-        String content = VALID_HEADER + "\n" + VALID_LINE_1 + "\n" + VALID_HEADER + "\n" + VALID_LINE_2;
+        String content = VALID_HEADER + "\n" + VALID_LINE_1 + "\n"
+                + VALID_HEADER + "\n" + VALID_LINE_2;
         Files.writeString(testFile, content);
 
         List<String> result = fileReader.read(testFile.toString());

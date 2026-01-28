@@ -5,11 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import core.basesyntax.model.FruitTransaction;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class DataConverterImplTest {
     private static final String EMPTY_LINE = "";
@@ -27,7 +26,6 @@ public class DataConverterImplTest {
     private static final List<FruitTransaction> FRUIT_TRANSACTIONS_EXPECTED_LIST = List.of(
             fruitTransaction
     );
-
 
     private DataConverterImpl dataConverter;
     private List<String> report;
@@ -115,7 +113,8 @@ public class DataConverterImplTest {
     @Test
     void convertToTransaction_validLineReport_ok() {
         report.add(VALID_LINE);
-        List<FruitTransaction> fruitTransactions = this.dataConverter.convertToTransaction(this.report);
+        List<FruitTransaction> fruitTransactions =
+                this.dataConverter.convertToTransaction(this.report);
         assertEquals(FRUIT_TRANSACTIONS_EXPECTED_LIST, fruitTransactions);
     }
 }
