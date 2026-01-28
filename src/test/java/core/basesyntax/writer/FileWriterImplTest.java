@@ -17,7 +17,7 @@ public class FileWriterImplTest {
     private static final String SINGLE_LINE_REPORT = "fruit,quantity";
 
     @TempDir
-    Path tempDir;
+    private Path tempDir;
 
     private FileWriterImpl fileWriter;
     private Path testFile;
